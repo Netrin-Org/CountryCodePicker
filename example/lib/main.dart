@@ -40,14 +40,15 @@ class _MyAppState extends State<MyApp> {
               CountryCodePicker(
                 onChanged: print,
                 // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                initialSelection: 'IT',
-                favorite: ['+39', 'FR'],
-                countryFilter: ['IT', 'FR'],
-                showFlagDialog: false,
-                comparator: (a, b) => b.name.compareTo(a.name),
+                initialSelection: 'IN',
+                favorite: ['+91', 'IN'],
+                showCountryOnly: true,
+
+                showOnlyCountryWhenClosed: false,
+                // comparator: (a, b) => b.name.compareTo(a.name),
                 //Get the country information relevant to the initial selection
-                onInit: (code) =>
-                    print("on init ${code.name} ${code.dialCode} ${code.name}"),
+                // onInit: (code) =>
+                //     print("on init ${code.name} ${code.dialCode} ${code.name}"),
               ),
               SizedBox(
                 width: 400,

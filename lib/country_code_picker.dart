@@ -263,11 +263,18 @@ class CountryCodePickerState extends State<CountryCodePicker> {
   }
 
   void showCountryCodePickerDialog() {
-    showMaterialModalBottomSheet(
+    showModalBottomSheet(
       barrierColor: widget.barrierColor ?? Colors.grey.withOpacity(0.5),
-      backgroundColor: widget.backgroundColor ?? Colors.transparent,
+      backgroundColor:  Colors.transparent,
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
       context: context,
-      builder: (context) => Center(
+      builder: (context) => AnimatedPadding(
+        duration: Duration(milliseconds: 150),
+        curve: Curves.easeOut,
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: SelectionDialog(
           elements,
           favoriteElements,
